@@ -1,0 +1,46 @@
+class Image:
+    coutry_name = {'643': 'Russia', '840': 'USA'}
+
+    def __init__(self):
+        self.resolution = '1920x2900'
+        self.title = 'picture'
+        self.extension = 'jpg'
+    def resize(self, new_resolution):
+        self.resolution = new_resolution
+
+    @staticmethod
+    def get_coutry_name(coutry_number = '643'):
+        return Image.coutry_name[coutry_number]
+
+
+class Map(Image):
+    map_example = {'see': '_-_-_-', 'mountains': '--^^--', 'desert': '::::'}
+
+    def __init__(self):
+        self.map_image = ''
+
+    @staticmethod
+    def get_map(example_number):
+        return Map.map_example[example_number]
+
+first_image = Image()
+first_image.resize('1800x2000')
+first_image.coutry_name['158'] = 'TNW'
+first_image.about = 'Mountain'
+print(first_image.resolution)
+print(first_image.about)
+
+second_image = Image()
+second_image.resize('1500x1900')
+print(second_image.resolution)
+
+Image.coutry_name['826'] = 'GB'
+
+print(Image.get_coutry_name('643'))
+print(Image.get_coutry_name())
+print(Image.get_coutry_name('826'))
+print(Image.get_coutry_name('158'))
+
+print(Map.get_map('see'))
+print(Map.get_map('mountains'))
+print(Map.get_map('desert'))
